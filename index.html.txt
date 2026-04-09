@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Senin İçin 💌</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffc0cb, #ffb6c1, #ffd1dc);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.card {
+    background: rgba(255,255,255,0.2);
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+button {
+    margin-top: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+}
+
+.effect {
+    position: absolute;
+    font-size: 22px;
+    animation: float 4s linear forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Sana Küçük Bir Şey 💗</h1>
+    <p>Belki farkında değilsin ama günümü güzelleştiriyorsun ✨</p>
+
+    <div class="card">Seninle konuşmak gerçekten çok iyi hissettiriyor 😊</div>
+    <div class="card">Mesajın gelince gülümsüyorum 💭</div>
+    <div class="card">Seni tanımak baya güzel bir şey oldu 🫶</div>
+
+    <button onclick="patlat()">Buna bas 🙈</button>
+    <p id="mesaj" style="margin-top:20px; font-size:18px;"></p>
+</div>
+
+<script>
+function patlat() {
+    document.getElementById("mesaj").innerHTML =
+    "Seni seviyorum 💖 İyi ki hayatımdasın 🫶";
+
+    for(let i=0; i<25; i++) {
+        efektOlustur();
+    }
+}
+
+function efektOlustur() {
+    const element = document.createElement("div");
+    element.classList.add("effect");
+
+    const emojis = ["💖","💗","💘","🧸"];
+    element.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    element.style.left = Math.random() * 100 + "vw";
+    element.style.top = "60%";
+
+    document.body.appendChild(element);
+
+    setTimeout(() => {
+        element.remove();
+    }, 4000);
+}
+</script>
+
+</body>
+</html>
